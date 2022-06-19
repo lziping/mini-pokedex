@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <title>Document</title>
+
+</head>
+<body>
+<div class="poke-container" id="poke-container"  >
+        {% for pokemon in pokemons.values() %}
+<div class="pokemon" style="background-color: {{ color[pokemon["type"][0]] }};">
+            <div class="img-container">
+            <a href="/detail/{{pokemon["id"]}}">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon["id"]}}.png">
+                </a></span>
+
+        </div>
+        <div class="info">
+            <span class="number"><a href="/detail/{{pokemon["id"]}}">{{ "%03d" % pokemon["id"]}}</a></span>
+            <h3 class="name">{{pokemon["name"].capitalize()}}</h3>
+            <small class="type"><span>{{ " | ".join(pokemon["type"]) }}</span> </small>
+        </div>
+
+    </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pokemon["name"].capitalize()}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+
+
+  <div class="detail-poke"  >
+
+      <h1 style="float:left;">{{pokemon["name"].capitalize()}}</h1>
+      <h1 style="float:right;">#{{ "%03d" % pokemon["id"]}}</h1>
+
+      <img style="width:50%;height:50%;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon["id"]}}.png">
+        <br>
+
+        {% for i in pokemon["type"] %}
+        <div class="icon {{i.lower()}}" style="margin:10px">
+            <img src="https://raw.githubusercontent.com/duiker101/pokemon-type-svg-icons/5781623f147f1bf850f426cfe1874ba56a9b75ee/icons/{{i.lower()}}.svg"/>
+        </div>
+        {% endfor %}
+      <div style="width:50%;float:right;justify-content: center;align-items: center;position:relative;">
+          <h2 style="text-align:center;justify-content: center;align-items: center;">Ability</h2>
+        {% for i in pokemon["ability"] %}
+        <h3 style="justify-content: center;align-items: center;padding:5px;border: 5px double #1C6EA4;border-radius: 40px;text-align:center;font-weight: bold;">{{i.capitalize()}}</h3>
+        {% endfor %}
+      </div>
+
+  <span style="float:left">
+
+          <img  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon["id"]}}.png">
+            <img  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/{{pokemon["id"]}}.png">
+
+          <img  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/{{pokemon["id"]}}.png">
+          <img  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/{{pokemon["id"]}}.png">
+        </span>
+
+  </div>
+
+
+
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
