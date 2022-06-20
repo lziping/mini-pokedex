@@ -15,6 +15,36 @@ background: linear-gradient(111deg, rgba(117,133,145,1) 0%, rgba(81,101,120,1) 4
   margin: 0;
 }
 
+#navigation{
+    background-color:rgba(0, 153, 218, 0.9);
+    padding: 20px 10px;
+    z-index: 50;
+    width: 100%;
+}
+
+#navigation li{
+    padding: 0 10px;
+}
+
+#navigation li a{
+    color: #fff;
+}
+
+.navbar-brand,
+.navbar-brand:hover{
+    color: #ffff;
+}
+
+.navbar-toggler-icon{
+    background: url(https://img.icons8.com/ios-glyphs/30/000000/menu-rounded.png);
+    background-size: 100%;
+}
+
+.fixedNav #navigation{
+    position: fixed;
+    top: 0;
+}
+
 .detail-poke{
     background-color:#a2d2ff;
     padding:5%;
