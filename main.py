@@ -6,6 +6,8 @@ import random
 
 app = Flask(__name__)
 
+total = 898
+
 color = {
     'Fire': '#FDDFDF',
     'Grass': '#DEFDE0',
@@ -68,7 +70,8 @@ def detail(id):
         else:
             id = search_input
 
-
+    if int(id) > 898:
+        return render_template('notfound.html')
 
     return render_template('detail.html', pokemon = pokemons[id],color=color)
 
