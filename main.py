@@ -62,10 +62,14 @@ def detail(id):
 
         if not search_input.isdigit():
             search_input.lower()
+            found = False
             for pokemon in pokemons.values():
                 if search_input.lower() == pokemon["name"]:
                     id = str(pokemon["id"])
+                    found = True
                     break
+            if not found:
+                return render_template('notfound.html')
 
         else:
             id = search_input
