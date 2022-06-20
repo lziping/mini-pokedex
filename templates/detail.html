@@ -19,10 +19,10 @@
 
   <div class="detail-poke"  >
 
-      <h1 style="float:left;">{{pokemon["name"].capitalize()}}</h1>
+      <h1 style="float:left;margin-right:25%">{{pokemon["name"].capitalize()}}</h1>
       <h1 style="float:right;">#{{ "%03d" % pokemon["id"]}}</h1>
-
-      <img style="width:50%;height:50%;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon["id"]}}.png">
+        <br>
+      <img style="width:50%;height:50%;margin-top:1%;" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon["id"]}}.png">
         <br>
 
         {% for i in pokemon["type"] %}

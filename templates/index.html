@@ -11,13 +11,14 @@
 
 </head>
 <body>
+
 <div class="poke-container" id="poke-container"  >
         {% for pokemon in pokemons.values() %}
 <div class="pokemon" style="background-color: {{ color[pokemon["type"][0]] }};">
             <div class="img-container">
             <a href="/detail/{{pokemon["id"]}}">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon["id"]}}.png">
-                </a></span>
+                </a>
 
         </div>
         <div class="info">
