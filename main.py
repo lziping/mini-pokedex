@@ -1,4 +1,4 @@
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
 import requests
 import json
 import time
@@ -32,28 +32,25 @@ color = {
 f = open('sample.json')
 pokemons = json.load(f)
 
+
 @app.route("/", methods=['GET'])
 def home():
-
     pokemon = {}
     for i in range(10):
-        id = random.randint(0,898)
+        id = random.randint(0, 898)
         pokemon[id] = pokemons[str(id)]
 
+    return render_template("index.html", pokemons=pokemon, color=color, types=color.keys(), time=time,
+                           pic_height="max-width:auto;display:flex;")
 
-    return render_template("index.html", pokemons=pokemon,  color = color,types = color.keys(),time=time, pic_height = "max-width:auto;display:flex;")
 
 @app.route("/pokedex", methods=['GET'])
 def pokedex():
+    return render_template("pokedex.html", pokemons=pokemons, color=color, time=time)
 
 
-    return render_template("pokedex.html", pokemons=pokemons, color = color,time=time)
-
-
-@app.route("/detail/<id>",methods=['GET', 'POST'])
+@app.route("/detail/<id>", methods=['GET', 'POST'])
 def detail(id):
-
-
     if id == "search":
         search_input = request.form['search']
 
@@ -63,12 +60,22 @@ def detail(id):
         if not search_input.isdigit():
             search_input.lower()
             found = False
+            similar = {}
+            input = search_input.lower()
             for pokemon in pokemons.values():
-                if search_input.lower() == pokemon["name"]:
-                    id = str(pokemon["id"])
+                if input == pokemon["name"]:
                     found = True
                     break
+
+                if input in pokemon["name"]:
+
+                    similar[str(pokemon["id"])] = pokemon
+
             if not found:
+
+                if similar:
+                    return render_template('pokedex.html', pokemons=similar, color=color, time=time)
+
                 return render_template('notfound.html')
 
         else:
@@ -77,35 +84,32 @@ def detail(id):
     if int(id) > 898:
         return render_template('notfound.html')
 
-    return render_template('detail.html', pokemon = pokemons[id],color=color)
+    return render_template('detail.html', pokemon=pokemons[id], color=color)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
 
-
-
-
 #
 
-    # pokemons = {}
-    # for i in range(1, 899):
-    #
-    #     pokemon = {}
-    #     url = "https://pokeapi.co/api/v2/pokemon/{}".format(i)
-    #     f = requests.get(url)
-    #     data = json.loads(f.content)
-    #
-    #     pokemon["id"] = i
-    #     pokemon["name"] = data["name"]
-    #
-    #     pokemon["type"] = [slot["type"]["name"].capitalize() for slot in data['types'] ]
-    #
-    #     pokemon["ability"] = [ab["ability"]["name"] for ab in data["abilities"]]
-    #
-    #     pokemons[str(i)] = pokemon
-    #
-    # with open("sample.json", "w") as outfile:
-    #     json.dump(pokemons, outfile)
-    # f = open('sample.json')
-    # pokemons = json.load(f)
+# pokemons = {}
+# for i in range(1, 899):
+#
+#     pokemon = {}
+#     url = "https://pokeapi.co/api/v2/pokemon/{}".format(i)
+#     f = requests.get(url)
+#     data = json.loads(f.content)
+#
+#     pokemon["id"] = i
+#     pokemon["name"] = data["name"]
+#
+#     pokemon["type"] = [slot["type"]["name"].capitalize() for slot in data['types'] ]
+#
+#     pokemon["ability"] = [ab["ability"]["name"] for ab in data["abilities"]]
+#
+#     pokemons[str(i)] = pokemon
+#
+# with open("sample.json", "w") as outfile:
+#     json.dump(pokemons, outfile)
+# f = open('sample.json')
+# pokemons = json.load(f)
