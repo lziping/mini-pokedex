@@ -17,7 +17,6 @@ background: linear-gradient(111deg, rgba(117,133,145,1) 0%, rgba(81,101,120,1) 4
 
 #navigation{
     background-color:rgba(0, 153, 218, 0.9);
-    padding: 20px 10px;
     z-index: 50;
     width: 100%;
 }
