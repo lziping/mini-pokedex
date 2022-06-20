@@ -15,6 +15,8 @@ background: linear-gradient(111deg, rgba(117,133,145,1) 0%, rgba(81,101,120,1) 4
   margin: 0;
 }
 
+
+
 #navigation{
     background-color:rgba(0, 153, 218, 0.9);
     z-index: 50;
@@ -43,6 +45,20 @@ background: linear-gradient(111deg, rgba(117,133,145,1) 0%, rgba(81,101,120,1) 4
     position: fixed;
     top: 0;
 }
+
+.search-bar{
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 16px;
+  /* margin-left: auto; */
+  font-size: 17px;
+  
+  max-height: 1cm;
+}
+
 
 .detail-poke{
     background-color:#a2d2ff;
