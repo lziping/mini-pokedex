@@ -59,14 +59,37 @@ background: linear-gradient(111deg, rgba(117,133,145,1) 0%, rgba(81,101,120,1) 4
   max-height: 1cm;
 }
 
+.yusanjia{
+    max-width: 15%;
+}
+
+.or-poke{
+    margin-left: 5%;
+}
+
+.description{
+    color: #000;
+    display: none;
+    font-size: large;
+    list-style-type: disc;
+    /* transition: all 0.5s ease-out; */
+
+}
+.asd:hover .description{
+    color: #000;
+    display: block;
+}
+
+
 .home-type{
     background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
     padding:5%;
     border-radius:1em;
     margin:1%;
     margin-bottom:8%;
-    max-width:30cm;
+    max-width:35cm;
     max-height:20cm;
+    justify-content: center;
 }
 
 

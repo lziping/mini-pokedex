@@ -2,7 +2,7 @@ from flask import Flask, render_template,request
 import requests
 import json
 import time
-
+import random
 
 app = Flask(__name__)
 
@@ -33,7 +33,14 @@ pokemons = json.load(f)
 @app.route("/", methods=['GET'])
 def home():
 
-    return render_template("index.html", pokemons=pokemons, types = color.keys(),time=time)
+    pokemon = {}
+    for i in range(10):
+        id = random.randint(0,898)
+        print(id)
+        pokemon[id] = pokemons[str(id)]
+
+
+    return render_template("index.html", pokemons=pokemon,  color = color,types = color.keys(),time=time, pic_height = "max-width:auto;display:flex;")
 
 @app.route("/pokedex", methods=['GET'])
 def pokedex():
@@ -68,9 +75,11 @@ def pokedex():
 def detail(id):
 
 
-    search_input = request.form['search']
-
     if id == "search":
+        search_input = request.form['search']
+
+        if not search_input:
+            return render_template('notfound.html')
 
         if not search_input.isdigit():
             search_input.lower()
