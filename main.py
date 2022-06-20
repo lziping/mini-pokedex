@@ -33,7 +33,7 @@ pokemons = json.load(f)
 @app.route("/", methods=['GET'])
 def home():
 
-    return render_template("index.html", pokemons=pokemons, color = color,time=time)
+    return render_template("index.html", pokemons=pokemons, types = color.keys(),time=time)
 
 @app.route("/pokedex", methods=['GET'])
 def pokedex():

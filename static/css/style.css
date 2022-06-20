@@ -59,11 +59,21 @@ background: linear-gradient(111deg, rgba(117,133,145,1) 0%, rgba(81,101,120,1) 4
   max-height: 1cm;
 }
 
+.home-type{
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    padding:5%;
+    border-radius:1em;
+    margin:1%;
+    margin-bottom:8%;
+    max-width:30cm;
+    max-height:20cm;
+}
+
 
 .detail-poke{
     background-color:#a2d2ff;
     padding:5%;
-    border-radius:10%;
+    border-radius:5em;
     margin:1%;
     margin-bottom:8%;
     max-width:20cm;

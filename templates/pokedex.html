@@ -13,8 +13,10 @@
         </div>
         <div class="info">
             <span class="number"><a href="/detail/{{pokemon["id"]}}">{{ "%03d" % pokemon["id"]}}</a></span>
-            <h3 class="name">{{pokemon["name"].capitalize()}}</h3>
-            <small class="type"><span>{{ " | ".join(pokemon["type"]) }}</span> </small>
+            <h3 class="name" style="font-size:1.3em;font-weight: bold;">{{pokemon["name"].capitalize()}}</h3>
+            {% for type in pokemon["type"]%}
+            <div class="{{type.lower()}}" style="padding:5%;padding-top:1px;padding-bottom:1px;border-radius:1em;" ><span>{{ type }}</span> </div>
+            {%endfor%}
         </div>
 
     </div>
