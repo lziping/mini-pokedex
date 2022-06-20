@@ -1,3 +1,3 @@
 # mini-pokedex
 
-Demo: https://pokemon-mini.herokuapp.com/
+Demo: https://the-pokemon.herokuapp.com/
