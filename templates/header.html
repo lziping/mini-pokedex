@@ -18,7 +18,7 @@
 <body>
     <nav id="navigation" class="navbar navbar-expand-lg">
         <img src="https://img.icons8.com/color/48/undefined/pokeball--v1.png"/>
-        <a class="navbar-brand" href="#">Pokémon</a>
+        <a class="navbar-brand" href="/">Pokémon</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +36,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/pokedex"><img style="width:50px;" src="https://img.icons8.com/plasticine/100/undefined/charmander.png"/>Pokédex</a>
                 </li>
+                
+                <form action="/detail/search" method="POST"  >
+                    <!-- input with button next to it -->
+                    
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Search......" aria-label="Search" aria-describedby="addon-wrapping"
+                    style="margin-top: auto;  border: none;height:4em;">
+                        <div class="input-group-append" style="margin-left: 1px;">
+                            <button class="btn btn-outline-secondary" type="submit" style="border: none;">
+                                <img style="width:50px;" src="https://img.icons8.com/plasticine/100/undefined/abra.png"/>
+                            </button>
+                        </div>
+                </form>
 
             </ul>
         </div>

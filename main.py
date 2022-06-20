@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import requests
 import json
 import time
@@ -66,6 +66,22 @@ def pokedex():
 
 @app.route("/detail/<id>",methods=['GET', 'POST'])
 def detail(id):
+
+
+    search_input = request.form['search']
+
+    if id == "search":
+
+        if not search_input.isdigit():
+            search_input.lower()
+            for pokemon in pokemons.values():
+                if search_input.lower() == pokemon["name"]:
+                    id = str(pokemon["id"])
+                    break
+
+        else:
+            id = search_input
+
 
 
     return render_template('detail.html', pokemon = pokemons[id],color=color)
