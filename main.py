@@ -36,7 +36,6 @@ def home():
     pokemon = {}
     for i in range(10):
         id = random.randint(0,898)
-        print(id)
         pokemon[id] = pokemons[str(id)]
 
 
@@ -45,28 +44,6 @@ def home():
 @app.route("/pokedex", methods=['GET'])
 def pokedex():
 
-
-    # pokemons = {}
-    # for i in range(1, 899):
-    #
-    #     pokemon = {}
-    #     url = "https://pokeapi.co/api/v2/pokemon/{}".format(i)
-    #     f = requests.get(url)
-    #     data = json.loads(f.content)
-    #
-    #     pokemon["id"] = i
-    #     pokemon["name"] = data["name"]
-    #
-    #     pokemon["type"] = [slot["type"]["name"].capitalize() for slot in data['types'] ]
-    #
-    #     pokemon["ability"] = [ab["ability"]["name"] for ab in data["abilities"]]
-    #
-    #     pokemons[str(i)] = pokemon
-    #
-    # with open("sample.json", "w") as outfile:
-    #     json.dump(pokemons, outfile)
-    # f = open('sample.json')
-    # pokemons = json.load(f)
 
     return render_template("pokedex.html", pokemons=pokemons, color = color,time=time)
 
@@ -98,3 +75,30 @@ def detail(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+#
+
+    # pokemons = {}
+    # for i in range(1, 899):
+    #
+    #     pokemon = {}
+    #     url = "https://pokeapi.co/api/v2/pokemon/{}".format(i)
+    #     f = requests.get(url)
+    #     data = json.loads(f.content)
+    #
+    #     pokemon["id"] = i
+    #     pokemon["name"] = data["name"]
+    #
+    #     pokemon["type"] = [slot["type"]["name"].capitalize() for slot in data['types'] ]
+    #
+    #     pokemon["ability"] = [ab["ability"]["name"] for ab in data["abilities"]]
+    #
+    #     pokemons[str(i)] = pokemon
+    #
+    # with open("sample.json", "w") as outfile:
+    #     json.dump(pokemons, outfile)
+    # f = open('sample.json')
+    # pokemons = json.load(f)
