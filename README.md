@@ -2,4 +2,3 @@
 
 Demo: https://the-pokemon.herokuapp.com/
 
-Still adding new features
